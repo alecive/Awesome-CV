@@ -277,6 +277,10 @@
 % Usage: \mobile{<mobile number>}
 \newcommand*{\mobile}[1]{\def\@mobile{#1}}
 
+% Defines writer's mobileB (optional)
+% Usage: \mobileB{<mobileB number>}
+\newcommand*{\mobileB}[1]{\def\@mobileB{#1}}
+
 % Defines writer's email (optional)
 % Usage: \email{<email adress>}
 \newcommand*{\email}[1]{\def\@email{#1}}
@@ -442,6 +446,12 @@
           \faMobile\acvHeaderIconSep\@mobile%
           \setbool{isstart}{false}%
         }%
+      \ifthenelse{\isundefined{\@mobileB}}%
+        {}%
+        {%
+          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
+          \faMobile\acvHeaderIconSep\@mobileB%
+        }%
       \ifthenelse{\isundefined{\@email}}%
         {}%
         {%
@@ -570,9 +580,9 @@
   \setlength{\extrarowheight}{0pt}
   \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
     \ifempty{#2#3}
-      {\entrypositionstyle{#1} & \entrydatestyle{#4} \\}
-      {\entrytitlestyle{#2} & \entrylocationstyle{#3} \\
-      \entrypositionstyle{#1} & \entrydatestyle{#4} \\}
+      {\entrypositionstyle{#2} & \entrydatestyle{#4} \\}
+      {\entrytitlestyle{#1} \ \entrypositionstyle{#2} &
+      \entrylocationstyle{#3} \ \entrydatestyle{#4} \\}
     \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#5}}
   \end{tabular*}%
 }
@@ -634,7 +644,17 @@
 % Define a line of cv information(skill)
 % Usage: \cvskill{<type>}{<skillset>}
 \newcommand*{\cvskill}[2]{%
-	\skilltypestyle{#1} & \skillsetstyle{#2} \\
+  \skilltypestyle{#1} & \skillsetstyle{#2} \\
+}
+
+% Define an environment for cvskillB
+\newcommand*{\cvskillB}[1]{%
+  \vspace{-2.0mm}
+  \setlength\tabcolsep{0pt}
+  \setlength{\extrarowheight}{0pt}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
+    \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#1}}
+  \end{tabular*}%
 }
 
 % Define an environment for cvitems(for cventry)
@@ -649,6 +669,7 @@
   \end{justify}
   \vspace{-4.0mm}
 }
+
 
 
 %-------------------------------------------------------------------------------
