@@ -179,6 +179,22 @@
   BoldItalicFont=*-MediumItalic,
 ]{Roboto}
 
+\newfontfamily\headerfontB[
+  Path=\@fontdir,
+  UprightFont=*-Light,
+  ItalicFont=*-LightItalic,
+  BoldFont=*-Regular,
+  BoldItalicFont=*-Italic,
+]{Montserrat}
+
+\newfontfamily\headerfontlightB[
+  Path=\@fontdir,
+  UprightFont=*-ExtraLight,
+  ItalicFont=*-ExtraLightItalic,
+  BoldFont=*-Light,
+  BoldItalicFont=*-LightItalic,
+]{Montserrat}
+
 \newcommand*{\footerfont}{\sourcesanspro}
 \newcommand*{\bodyfont}{\sourcesanspro}
 \newcommand*{\bodyfontlight}{\sourcesansprolight}
@@ -188,20 +204,20 @@
 %-------------------------------------------------------------------------------
 % Configure styles for each CV elements
 % For fundamental structures
-\newcommand*{\headerfirstnamestyle}[1]{{\fontsize{28pt}{1em}\headerfontlight\color{graytext} #1}}
-\newcommand*{\headerlastnamestyle}[1]{{\fontsize{28pt}{1em}\headerfont\bfseries\color{text} #1}}
-\newcommand*{\headerpositionstyle}[1]{{\fontsize{9pt}{1.2em}\bodyfont\scshape\color{awesome} #1}}
+\newcommand*{\headerfirstnamestyle}[1]{{\fontsize{28pt}{1em}\headerfontlightB\color{graytext} #1}}
+\newcommand*{\headerlastnamestyle}[1]{{\fontsize{28pt}{1em}\headerfontB\bfseries\color{text} #1}}
+\newcommand*{\headerpositionstyle}[1]{{\fontsize{9pt}{1.2em}\headerfontB\scshape\color{awesome} #1}}
 \newcommand*{\headeraddressstyle}[1]{{\fontsize{8pt}{1em}\headerfont\itshape\color{lighttext} #1}}
 \newcommand*{\headersocialstyle}[1]{{\fontsize{7.5pt}{1em}\headerfont\color{text} #1}}
 \newcommand*{\headerquotestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\itshape\color{darktext} #1}}
 \newcommand*{\footerstyle}[1]{{\fontsize{8pt}{1em}\footerfont\scshape\color{lighttext} #1}}
-\newcommand*{\sectionstyle}[1]{{\fontsize{15pt}{1em}\bodyfont\scshape\color{text}\MakeLowercase{\@sectioncolor #1}}}
-\newcommand*{\subsectionstyle}[1]{{\fontsize{12pt}{1em}\bodyfont\scshape\textcolor{text}{\MakeLowercase{#1}}}}
+\newcommand*{\sectionstyle}[1]{{\fontsize{15pt}{1em}\headerfontB\bfseries\scshape\color{text}\MakeLowercase{\@sectioncolor #1}}}
+\newcommand*{\subsectionstyle}[1]{{\fontsize{12pt}{1em}\headerfontB\scshape\textcolor{text}{\MakeLowercase{#1}}}}
 \newcommand*{\paragraphstyle}{\fontsize{9.5pt}{1.1em}\bodyfontlight\upshape\color{text}}
 
 % For elements of entry
 \newcommand*{\entrytitlestyle}[1]{{\fontsize{10.5pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
-\newcommand*{\entrypositionstyle}[1]{{\fontsize{9.5pt}{1em}\bodyfont\scshape\color{graytext} \MakeLowercase{#1}}}
+\newcommand*{\entrypositionstyle}[1]{{\fontsize{9.5pt}{1em}\headerfontB\scshape\color{graytext} \MakeLowercase{#1}}}
 \newcommand*{\entrydatestyle}[1]{{\fontsize{8.5pt}{1em}\bodyfontlight\slshape\color{graytext} #1}}
 \newcommand*{\entrylocationstyle}[1]{{\fontsize{9.5pt}{1em}\bodyfontlight\slshape\color{awesome} #1}}
 \newcommand*{\descriptionstyle}[1]{{\fontsize{9.5pt}{1.1em}\bodyfontlight\upshape\color{text} #1}}
@@ -277,13 +293,17 @@
 % Usage: \mobile{<mobile number>}
 \newcommand*{\mobile}[1]{\def\@mobile{#1}}
 
-% Defines writer's mobileB (optional)
+% Defines writer's second mobile (optional)
 % Usage: \mobileB{<mobileB number>}
 \newcommand*{\mobileB}[1]{\def\@mobileB{#1}}
 
 % Defines writer's email (optional)
 % Usage: \email{<email adress>}
 \newcommand*{\email}[1]{\def\@email{#1}}
+
+% Defines writer's second email (optional)
+% Usage: \emailB{<emailB adress>}
+\newcommand*{\emailB}[1]{\def\@emailB{#1}}
 
 % Defines writer's homepage (optional)
 % Usage: \homepage{<url>}
@@ -444,6 +464,11 @@
         {}%
         {%
           \href{mailto:\@email}{\color{text}\faEnvelope\acvHeaderIconSep\@email}%
+          \ifthenelse{\isundefined{\@emailB}}%
+            {}%
+            {
+              \href{mailto:\@emailB}{\color{text}{\cdotp}\acvHeaderIconSep\@emailB}%
+            }%
           \setbool{isstart}{false}%
         }%
       \ifthenelse{\isundefined{\@homepage}}%
@@ -481,12 +506,11 @@
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
           \faMobile\acvHeaderIconSep\@mobile%
-        }%
-      \ifthenelse{\isundefined{\@mobileB}}%
-        {}%
-        {%
-          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \faMobile\acvHeaderIconSep\@mobileB%
+          \ifthenelse{\isundefined{\@mobileB}}%
+            {}%
+            {
+              {\cdotp}\acvHeaderIconSep\@mobileB%
+            }%
         }%
       \ifthenelse{\isundefined{\@twitter}}%
         {}%
@@ -550,8 +574,9 @@
 % Usage: \cvsubsection{<subsection-title>}
 \newcommand{\cvsubsection}[1]{%
   \vspace{\acvSectionContentTopSkip}
-  \vspace{-3mm}
+  \vspace{-2mm}
   \subsectionstyle{#1}
+  \vspace{-1mm}
   \phantomsection
 }
 
@@ -578,7 +603,7 @@
   \vspace{-2.0mm}
   \setlength\tabcolsep{0pt}
   \setlength{\extrarowheight}{0pt}
-  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 5cm} R{5cm}}
     \ifempty{#2#3}
       {\entrypositionstyle{#2} & \entrydatestyle{#4} \\}
       {\entrytitlestyle{#1} \ \entrypositionstyle{#2} &
