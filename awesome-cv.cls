@@ -66,6 +66,8 @@
 \RequirePackage{etoolbox}
 % Needed to change line spacing in specific environment
 \RequirePackage{setspace}
+% Needed to make tables span multiple pages
+\RequirePackage{longtable}
 % Needed to manage fonts
 \RequirePackage[quiet]{fontspec}
 % To support LaTeX quoting style
@@ -603,13 +605,16 @@
   \vspace{-2.0mm}
   \setlength\tabcolsep{0pt}
   \setlength{\extrarowheight}{0pt}
-  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
+  %\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
+  \begin{longtable}{lr}
     \ifempty{#2#3}
       {\entrypositionstyle{#2} & \entrydatestyle{#4} \\}
       {\entrytitlestyle{#1} \ \entrypositionstyle{#2} &
       \entrylocationstyle{#3} \ \entrydatestyle{#4} \\}
     \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#5}}
-  \end{tabular*}%
+  %\end{tabular*}%
+  \end{longtable}%
+  \vspace{-6.0mm}
 }
 
 % Define an environment for cvsubentry
@@ -674,12 +679,9 @@
 
 % Define an environment for cvskillB
 \newcommand*{\cvskillB}[1]{%
-  \vspace{-2.0mm}
-  \setlength\tabcolsep{0pt}
-  \setlength{\extrarowheight}{0pt}
-  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
-    \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#1}}
-  \end{tabular*}%
+  \vspace{1.0mm}
+  \descriptionstyle{#1}
+  \vspace{3.0mm}
 }
 
 % Define an environment for cvitems(for cventry)
