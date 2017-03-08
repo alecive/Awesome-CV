@@ -247,9 +247,10 @@
 \newcommand*{\recipienttitlestyle}[1]{{\fontsize{11pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
 \newcommand*{\lettertitlestyle}[1]{{\fontsize{10pt}{1em}\bodyfontlight\bfseries\color{darktext} \underline{#1}}}
 \newcommand*{\letterdatestyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\slshape\color{graytext} #1}}
-\newcommand*{\lettertextstyle}{\fontsize{10pt}{1.4em}\bodyfontlight\upshape\color{graytext}}
-\newcommand*{\letternamestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
-\newcommand*{\letterenclosurestyle}[1]{{\fontsize{10pt}{1em}\bodyfontlight\slshape\color{lighttext} #1}}
+\newcommand*{\lettertextstyle}{\fontsize{11pt}{1.6em}\bodyfontlight\upshape\color{graytext}}
+\newcommand*{\letterfirstnamestyle}[1]{{\fontsize{11pt}{1em}\bodyfontlight\color{graytext} #1}}
+\newcommand*{\letterlastnamestyle}[1]{{\fontsize{11.5pt}{1em}\bodyfontlight\bfseries\color{text} #1}}
+\newcommand*{\letterenclosurestyle}[1]{{\fontsize{11pt}{1em}\bodyfontlight\slshape\color{lighttext} #1}}
 
 
 %-------------------------------------------------------------------------------
@@ -357,9 +358,9 @@
 % Usage: \recipient{<recipient name>}{<recipient address>}
 % Usage: \recipientname{<recipient name>}
 % Usage: \recipientaddress{<recipient address>}
-\newcommand*{\recipient}[2]{\def\@recipientname{#1}\def\@recipientaddress{#2}}
+\newcommand*{\recipient}[2]{\def\@recipientname{#1}\def\@recipientgroup{#2}}
 \newcommand*{\recipientname}[1]{\def\@recipientname{#1}}
-\newcommand*{\recipientaddress}[1]{\def\@recipientaddress{#1}}
+\newcommand*{\recipientgroup}[1]{\def\@recipientgroup{#1}}
 
 % Defines the title for letter (cover letter only, optional)
 % Usage: \lettertitle{<title>}
@@ -704,6 +705,8 @@
 %-------------------------------------------------------------------------------
 % Define an environment for cvletter
 \newenvironment{cvletter}{%
+  \newcommand{\desiredposition}{\@lettertitle\ }
+  \newcommand{\desiredcompany}{\@recipientname\ }
   \lettertextstyle
 }{%
 }
@@ -724,16 +727,8 @@
   \vspace{8.4mm}
   \setlength\tabcolsep{0pt}
   \setlength{\extrarowheight}{0pt}
-  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
-    \recipienttitlestyle{\@recipientname} & \letterdatestyle{\@letterdate}
-  \end{tabular*}
-  \begin{singlespace}
-    \recipientaddressstyle{\@recipientaddress} \\\\
-  \end{singlespace}
-  \ifthenelse{\isundefined{\@lettertitle}}
-    {}
-    {\lettertitlestyle{\@lettertitle} \\}
-  \lettertextstyle{\@letteropening}
+  \lettertextstyle{\@letterdate}\\ \\ \\
+  \lettertextstyle{\@letteropening}\ \lettertextstyle{\@recipientname} \@recipientgroup,\\
 }
 
 % Define a closing of the cover letter
@@ -741,11 +736,13 @@
 \newcommand*{\makeletterclosing}{%
   \vspace{3.4mm}
   \lettertextstyle{\@letterclosing} \\\\
-  \letternamestyle{\@firstname\ \@lastname}
-  \ifthenelse{\isundefined{\@letterenclosure}}
-    {\\}
+  \letterfirstnamestyle{\@firstname}\ \letterlastnamestyle{\@lastname}\\
+  \@position, \@address\\
+  \href{mailto:\@email}{\color{awesome}\faEnvelope\acvHeaderIconSep\@email}\\
+  \ifthenelse{\isundefined{\@emailB}}
+    {}%
     {%
-      \\\\\\
-      \letterenclosurestyle{\@letterenclname: \@letterenclosure} \\
+      \href{mailto:\@email}{\color{awesome}\faEnvelope\acvHeaderIconSep\@emailB}\\
     }
+  \href{https://\@homepage}{\color{awesome}\faHome\acvHeaderIconSep\@homepage}%
 }
