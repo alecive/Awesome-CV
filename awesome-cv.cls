@@ -571,6 +571,7 @@
   \sectionstyle{#1}
   \phantomsection
   \color{awesome}\vhrulefill{1pt}
+  \vspace{-1mm}
 }
 
 % Define a subsection for CV
@@ -578,7 +579,7 @@
 \newcommand{\cvsubsection}[1]{%
   \vspace{\acvSectionContentTopSkip}
   \subsectionstyle{#1}
-  \vspace{0.5mm}
+  \vspace{-0.5mm}
   \phantomsection
 }
 
@@ -589,12 +590,13 @@
   \paragraphstyle
 }{%
   \par
-  \vspace{2mm}
+  % \vspace{2mm}
 }
 
 % Define an environment for cventry
 \newenvironment{cventries}{%
   \vspace{\acvSectionContentTopSkip}
+  \vspace{1.5mm}
   \begin{center}
 }{%
   \end{center}
