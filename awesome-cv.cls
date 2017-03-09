@@ -210,7 +210,7 @@
 \newcommand*{\headerlastnamestyle}[1]{{\fontsize{28pt}{1em}\headerfontB\bfseries\color{text} #1}}
 \newcommand*{\headerpositionstyle}[1]{{\fontsize{9.5pt}{1.2em}\headerfontB\scshape\color{awesome} #1}}
 \newcommand*{\headeraddressstyle}[1]{{\fontsize{8pt}{1em}\headerfont\itshape\color{lighttext} #1}}
-\newcommand*{\headersocialstyle}[1]{{\fontsize{7.75pt}{1em}\headerfont\color{text} #1}}
+\newcommand*{\headersocialstyle}[1]{{\fontsize{8pt}{1em}\headerfont\color{text} #1}}
 \newcommand*{\headerquotestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\itshape\color{darktext} #1}}
 \newcommand*{\footerstyle}[1]{{\fontsize{8pt}{1em}\footerfont\scshape\color{lighttext} #1}}
 \newcommand*{\sectionstyle}[1]{{\fontsize{16pt}{1em}\headerfontB\bfseries\scshape\color{text}\MakeLowercase{\@sectioncolor #1}}}
@@ -252,6 +252,7 @@
 \newcommand*{\letterlastnamestyle}[1]{{\fontsize{11.5pt}{1em}\bodyfontlight\bfseries\color{text} #1}}
 \newcommand*{\letterenclosurestyle}[1]{{\fontsize{11pt}{1em}\bodyfontlight\slshape\color{lighttext} #1}}
 
+\newcommand*{\textBF}[1]{{\fontsize{10pt}{1em}\bodyfont\scshape\MakeLowercase{#1}}}
 
 %-------------------------------------------------------------------------------
 %                Commands for personal information
