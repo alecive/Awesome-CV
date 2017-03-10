@@ -219,7 +219,7 @@
 
 % For elements of entry
 \newcommand*{\entrytitlestyle}[1]{{\fontsize{10.5pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
-\newcommand*{\entrypositionstyle}[1]{{\fontsize{9.5pt}{1em}\headerfontB\scshape\color{graytext} \MakeLowercase{#1}}}
+\newcommand*{\entrypositionstyle}[1]{{\fontsize{10pt}{1em}\headerfontB\scshape\color{graytext} \MakeLowercase{#1}}}
 \newcommand*{\entrydatestyle}[1]{{\fontsize{8.5pt}{1em}\bodyfontlight\slshape\color{graytext} #1}}
 \newcommand*{\entrylocationstyle}[1]{{\fontsize{9.5pt}{1em}\bodyfontlight\slshape\color{awesome} #1}}
 \newcommand*{\descriptionstyle}[1]{{\fontsize{10pt}{1.15em}\bodyfontlight\upshape\color{text} #1}}
@@ -252,7 +252,7 @@
 \newcommand*{\letterlastnamestyle}[1]{{\fontsize{11.5pt}{1em}\bodyfontlight\bfseries\color{text} #1}}
 \newcommand*{\letterenclosurestyle}[1]{{\fontsize{11pt}{1em}\bodyfontlight\slshape\color{lighttext} #1}}
 
-\newcommand*{\textBF}[1]{{\fontsize{11pt}{1em}\bodyfont\scshape\MakeLowercase{#1}}}
+\newcommand*{\textBF}[1]{{\fontsize{12pt}{1em}\bodyfont\scshape\MakeLowercase{#1}}}
 
 %-------------------------------------------------------------------------------
 %                Commands for personal information
