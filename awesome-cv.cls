@@ -696,6 +696,7 @@
   \begin{itemize}[leftmargin=1.2ex, nosep, noitemsep]
     \setlength{\parskip}{0pt}
     \renewcommand{\labelitemi}{\bullet}
+    % \renewcommand{\labelitemi}{\scriptsize$\blacksquare$}
 }{%
   \end{itemize}
   \end{justify}
