@@ -251,7 +251,7 @@
 \newcommand*{\letterlastnamestyle}[1]{{\fontsize{11.5pt}{1em}\bodyfontlight\bfseries\color{text} #1}}
 \newcommand*{\letterenclosurestyle}[1]{{\fontsize{11pt}{1em}\bodyfontlight\slshape\color{lighttext} #1}}
 
-\newcommand*{\textBF}[1]{{\fontsize{12pt}{1em}\bodyfont\scshape\MakeLowercase{#1}}}
+\newcommand*{\textBF}[1]{{\fontsize{11.5pt}{1em}\bodyfont\scshape\MakeLowercase{#1}}}
 
 %-------------------------------------------------------------------------------
 %                Commands for personal information
