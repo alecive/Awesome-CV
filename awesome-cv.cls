@@ -197,7 +197,6 @@
   BoldItalicFont=*-LightItalic,
 ]{Montserrat}
 
-\newcommand*{\footerfont}{\sourcesanspro}
 \newcommand*{\bodyfont}{\sourcesanspro}
 \newcommand*{\bodyfontlight}{\sourcesansprolight}
 
@@ -208,19 +207,22 @@
 % For fundamental structures
 \newcommand*{\headerfirstnamestyle}[1]{{\fontsize{28pt}{1em}\headerfontlightB\color{graytext} #1}}
 \newcommand*{\headerlastnamestyle}[1]{{\fontsize{28pt}{1em}\headerfontB\bfseries\color{text} #1}}
-\newcommand*{\headerpositionstyle}[1]{{\fontsize{9.5pt}{1.2em}\headerfontB\scshape\color{awesome} #1}}
+% The following line triggers the errors below. Changing font changes that, but I don't want to
+% ** WARNING ** Unable to read OpenType/TrueType Unicode cmap table.
+% ** WARNING ** Failed to load ToUnicode CMap for font "Montserrat-Light"
+\newcommand*{\headerpositionstyle}[1]{{\fontsize{10pt}{1.2em}\headerfontB\scshape\color{awesome} #1}}
 \newcommand*{\headeraddressstyle}[1]{{\fontsize{8pt}{1em}\headerfont\itshape\color{lighttext} #1}}
 \newcommand*{\headersocialstyle}[1]{{\fontsize{8pt}{1em}\headerfont\color{text} #1}}
 \newcommand*{\headerquotestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\itshape\color{darktext} #1}}
-\newcommand*{\footerstyle}[1]{{\fontsize{8pt}{1em}\footerfont\scshape\color{lighttext} #1}}
+\newcommand*{\footerstyle}[1]{{\fontsize{8pt}{1em}\bodyfont\scshape\color{lighttext} #1}}
 \newcommand*{\sectionstyle}[1]{{\fontsize{16pt}{1em}\headerfontB\bfseries\scshape\color{awesome}\MakeLowercase{#1}}}
-\newcommand*{\subsectionstyle}[1]{{\fontsize{14pt}{1em}\footerfont\scshape\textcolor{graytext}{\MakeLowercase{#1}}}}
+\newcommand*{\subsectionstyle}[1]{{\fontsize{14pt}{1em}\bodyfont\scshape\textcolor{graytext}{\MakeLowercase{#1}}}}
 \newcommand*{\paragraphstyle}{\fontsize{10pt}{1.15em}\bodyfontlight\upshape\color{text}}
 
 % For elements of entry
 \newcommand*{\entrytitlestyle}[1]{{\fontsize{10.5pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
-\newcommand*{\entrypositionstyle}[1]{{\fontsize{10pt}{1em}\footerfont\scshape\color{graytext} \MakeLowercase{#1}}}
-\newcommand*{\entrydatestyle}[1]{{\fontsize{10pt}{1em}\footerfont\scshape\color{graytext} #1}}
+\newcommand*{\entrypositionstyle}[1]{{\fontsize{10pt}{1em}\bodyfont\scshape\color{graytext} \MakeLowercase{#1}}}
+\newcommand*{\entrydatestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\scshape\color{graytext} #1}}
 \newcommand*{\entrylocationstyle}[1]{{\fontsize{9.5pt}{1em}\bodyfontlight\color{awesome} #1}}
 \newcommand*{\descriptionstyle}[1]{{\fontsize{10pt}{1.15em}\bodyfontlight\upshape\color{text} #1}}
 
