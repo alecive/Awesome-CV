@@ -214,13 +214,13 @@
 \newcommand*{\headerquotestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\itshape\color{darktext} #1}}
 \newcommand*{\footerstyle}[1]{{\fontsize{8pt}{1em}\footerfont\scshape\color{lighttext} #1}}
 \newcommand*{\sectionstyle}[1]{{\fontsize{16pt}{1em}\headerfontB\bfseries\scshape\color{awesome}\MakeLowercase{#1}}}
-\newcommand*{\subsectionstyle}[1]{{\fontsize{14pt}{1em}\bodyfont\scshape\textcolor{graytext}{\MakeLowercase{#1}}}}
+\newcommand*{\subsectionstyle}[1]{{\fontsize{14pt}{1em}\footerfont\scshape\textcolor{graytext}{\MakeLowercase{#1}}}}
 \newcommand*{\paragraphstyle}{\fontsize{10pt}{1.15em}\bodyfontlight\upshape\color{text}}
 
 % For elements of entry
 \newcommand*{\entrytitlestyle}[1]{{\fontsize{10.5pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
-\newcommand*{\entrypositionstyle}[1]{{\fontsize{10pt}{1em}\bodyfont\scshape\color{graytext} \MakeLowercase{#1}}}
-\newcommand*{\entrydatestyle}[1]{{\fontsize{10pt}{1em}\bodyfontlight\scshape\color{graytext} #1}}
+\newcommand*{\entrypositionstyle}[1]{{\fontsize{10pt}{1em}\footerfont\scshape\color{graytext} \MakeLowercase{#1}}}
+\newcommand*{\entrydatestyle}[1]{{\fontsize{10pt}{1em}\footerfont\scshape\color{graytext} #1}}
 \newcommand*{\entrylocationstyle}[1]{{\fontsize{9.5pt}{1em}\bodyfontlight\color{awesome} #1}}
 \newcommand*{\descriptionstyle}[1]{{\fontsize{10pt}{1.15em}\bodyfontlight\upshape\color{text} #1}}
 
