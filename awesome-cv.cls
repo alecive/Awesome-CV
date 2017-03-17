@@ -248,7 +248,7 @@
 \newcommand*{\letterdatestyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\slshape\color{graytext} #1}}
 \newcommand*{\lettertextstyle}{\fontsize{11pt}{1.6em}\bodyfontlight\upshape\color{graytext}}
 \newcommand*{\letterfirstnamestyle}[1]{{\fontsize{11pt}{1em}\bodyfontlight\color{graytext} #1}}
-\newcommand*{\letterlastnamestyle}[1]{{\fontsize{11.5pt}{1em}\bodyfontlight\bfseries\color{text} #1}}
+\newcommand*{\letterlastnamestyle}[1]{{\fontsize{11.5pt}{1em}\bodyfontlight\bfseries\color{graytext} #1}}
 \newcommand*{\letterenclosurestyle}[1]{{\fontsize{11pt}{1em}\bodyfontlight\slshape\color{lighttext} #1}}
 
 \newcommand*{\textBF}[1]{{\fontsize{11.5pt}{1em}\bodyfont\scshape\MakeLowercase{#1}}}
@@ -355,16 +355,28 @@
 \renewcommand*{\quote}[1]{\def\@quote{#1}}
 
 % Defines recipient's information (cover letter only)
-% Usage: \recipient{<recipient name>}{<recipient address>}
+% Usage: \recipient{<recipient name>}{<recipient address>}{<recipient name B>}
 % Usage: \recipientname{<recipient name>}
 % Usage: \recipientaddress{<recipient address>}
-\newcommand*{\recipient}[2]{\def\@recipientname{#1}\def\@recipientgroup{#2}}
+% Usage: \recipientnameB{<recipient nameB>}
+\newcommand*{\recipient}[3]{\def\@recipientname{#1}\def\@recipientgroup{#2}\def\@recipientnameB{#3}}
 \newcommand*{\recipientname}[1]{\def\@recipientname{#1}}
 \newcommand*{\recipientgroup}[1]{\def\@recipientgroup{#1}}
+\newcommand*{\recipientnameB}[1]{\def\@recipientnameB{#1}}
+
+% Defines current address for the coverletter
+% Usage: \letteraddress{<letteraddressA>}{<letteraddressB>}{<letteraddressC>}
+% Usage: \letteraddressA{<letteraddressA>}
+% Usage: \letteraddressB{<letteraddressB>}
+% Usage: \letteraddressC{<letteraddressC>}
+\newcommand*{\letteraddress}[3]{\def\@letteraddressA{#1}\def\@letteraddressB{#2}\def\@letteraddressC{#3}}
+\newcommand*{\letteraddressA}[1]{\def\@letteraddressA{#1}}
+\newcommand*{\letteraddressB}[1]{\def\@letteraddressB{#1}}
+\newcommand*{\letteraddressC}[1]{\def\@letteraddressC{#1}}
 
 % Defines the title for letter (cover letter only, optional)
-% Usage: \lettertitle{<title>}
-\newcommand*{\lettertitle}[1]{\def\@lettertitle{#1}}
+% Usage: \letterposition{<title>}
+\newcommand*{\letterposition}[1]{\def\@letterposition{#1}}
 
 % Defines the date for letter (cover letter only)
 % Usage: \letterdate{<date>}
@@ -484,7 +496,7 @@
         {}%
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{https://github.com/\@github}{\color{text}\faGithubSquare\acvHeaderIconSep\@github}%
+          \href{https://github.com/\@github}{\color{text}\faGithubAlt\acvHeaderIconSep\@github}%
         }%
       \ifthenelse{\isundefined{\@gitlab}}%
         {}%
@@ -508,7 +520,7 @@
         {}%
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \faMobile\acvHeaderIconSep\@mobile%
+          \faPhone\acvHeaderIconSep\@mobile%
           \ifthenelse{\isundefined{\@mobileB}}%
             {}%
             {
@@ -707,8 +719,14 @@
 %-------------------------------------------------------------------------------
 % Define an environment for cvletter
 \newenvironment{cvletter}{%
-  \newcommand{\desiredposition}{\@lettertitle\ }
-  \newcommand{\desiredcompany}{\@recipientname\ }
+  \newcommand{\desiredposition}{\@letterposition}
+  \newcommand{\desiredcompany}{\@recipientname}
+  \newcommand{\desiredcompanyB}{\@recipientnameB}
+  \newcommand{\currentposition}{\@position}
+  \newcommand{\currentaddressA}{\@letteraddressA}
+  \newcommand{\currentaddressB}{\@letteraddressB}
+  \newcommand{\currentaddressC}{\@letteraddressC}
+  \newcommand{\website}{\@homepage}
   \lettertextstyle
 }{%
 }
@@ -729,8 +747,10 @@
   \vspace{8.4mm}
   \setlength\tabcolsep{0pt}
   \setlength{\extrarowheight}{0pt}
-  \lettertextstyle{\@letterdate}\\ \\ \\
-  \lettertextstyle{\@letteropening}\ \lettertextstyle{\@recipientname} \@recipientgroup,\\
+  \begin{flushright}
+  \lettertextstyle{\@letterdate }\vspace{2mm}
+  \end{flushright}
+  \lettertextstyle \@letteropening\ \@recipientname\ \@recipientgroup,\\
 }
 
 % Define a closing of the cover letter
@@ -739,12 +759,23 @@
   \vspace{3.4mm}
   \lettertextstyle{\@letterclosing} \\\\
   \letterfirstnamestyle{\@firstname}\ \letterlastnamestyle{\@lastname}\\
-  \@position, \@address\\
-  \href{mailto:\@email}{\color{awesome}\faEnvelope\acvHeaderIconSep\@email}\\
-  \ifthenelse{\isundefined{\@emailB}}
+  \@position, \@letteraddressA,\\
+  \@letteraddressB, \@letteraddressC\\
+  \href{mailto:\@email}{\color{awesome}\faEnvelope\acvHeaderIconSep\@email}%
+  \ifthenelse{\isundefined{\@emailB}}%
     {}%
     {%
-      \href{mailto:\@email}{\color{awesome}\faEnvelope\acvHeaderIconSep\@emailB}\\
-    }
+      \acvHeaderIconSep{\cdotp}\acvHeaderIconSep\href{mailto:\@email}{\color{awesome}\@emailB}
+    }\\
   \href{https://\@homepage}{\color{awesome}\faHome\acvHeaderIconSep\@homepage}%
+  \ifthenelse{\isundefined{\@github}}%
+    {}%
+    {%
+      \color{graytext}\acvHeaderSocialSep\href{https://github.com/\@github}{\color{awesome}\faGithubAlt\acvHeaderIconSep\@github}%
+    }%
+  \ifthenelse{\isundefined{\@mobile}}%
+    {}%
+    {%
+      \color{graytext}\acvHeaderSocialSep\color{awesome}\faPhone\acvHeaderIconSep\@mobile%
+    }%
 }
