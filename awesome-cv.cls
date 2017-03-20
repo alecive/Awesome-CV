@@ -712,7 +712,23 @@
   \vspace{-4.0mm}
 }
 
+%-------------------------------------------------------------------------------
+%                Commands for elements of Bio
+%-------------------------------------------------------------------------------
 
+\newenvironment{cvbio}{%
+  \newcommand{\desiredposition}{\@letterposition}
+  \newcommand{\desiredcompany}{\@recipientname}
+  \newcommand{\desiredcompanyB}{\@recipientnameB}
+  \newcommand{\currentposition}{\@position}
+  \newcommand{\currentaddressA}{\@letteraddressA}
+  \newcommand{\currentaddressB}{\@letteraddressB}
+  \newcommand{\currentaddressC}{\@letteraddressC}
+  \newcommand{\website}{\@homepage}
+  \lettertextstyle
+  \vspace{1cm}
+}{%
+}
 
 %-------------------------------------------------------------------------------
 %                Commands for elements of Cover Letter
