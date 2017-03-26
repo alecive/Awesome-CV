@@ -567,6 +567,13 @@
   \end{minipage}
 }
 
+\newcommand*{\makereferencecontact}[1]{%
+  \begin{minipage}[c]{\linewidth}%
+    \sectionstyle{Reference Contact:} \paragraphstyle{\bfseries #1}%
+    \vspace{\acvHeaderAfterQuoteSkip}%
+  \end{minipage}
+}
+
 % Define a footer for CV
 % Usage: \makecvfooter{<left>}{<center>}{<right>}
 \newcommand*{\makecvfooter}[3]{%
