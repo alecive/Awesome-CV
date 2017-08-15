@@ -712,6 +712,7 @@
   \begin{itemize}[leftmargin=1.2ex, nosep, noitemsep]
     \setlength{\parskip}{0pt}
     \renewcommand{\labelitemi}{\bullet}
+    \renewcommand{\labelitemii}{$\circ$}
     % \renewcommand{\labelitemi}{\scriptsize$\blacksquare$}
 }{%
   \end{itemize}
