@@ -378,6 +378,10 @@
 % Usage: \letterposition{<title>}
 \newcommand*{\letterposition}[1]{\def\@letterposition{#1}}
 
+% Defines the department for letter (cover letter only)
+% Usage: \letterdepartment{<department>}
+\newcommand*{\letterdepartment}[1]{\def\@letterdepartment{#1}}
+
 % Defines the date for letter (cover letter only)
 % Usage: \letterdate{<date>}
 \newcommand*{\letterdate}[1]{\def\@letterdate{#1}}
@@ -744,6 +748,7 @@
 % Define an environment for cvletter
 \newenvironment{cvletter}{%
   \newcommand{\desiredposition}{\@letterposition}
+  \newcommand{\desireddepartment}{\@letterdepartment}
   \newcommand{\desiredcompany}{\@recipientname}
   \newcommand{\desiredcompanyB}{\@recipientnameB}
   \newcommand{\currentposition}{\@position}
