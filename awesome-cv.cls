@@ -785,8 +785,9 @@
 % Define a closing of the cover letter
 % Usage: \makeletterclosing
 \newcommand*{\makeletterclosing}{%
-  \vspace{3.4mm}
-  \lettertextstyle{\@letterclosing} \\\\
+  \vskip 10pt
+  \lettertextstyle{\@letterclosing}
+  \vskip 10pt
   \letterfirstnamestyle{\@firstname}\ \letterlastnamestyle{\@lastname}\\
   \@position, \@letteraddressA,\\
   \@letteraddressB, \@letteraddressC\\
