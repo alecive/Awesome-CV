@@ -773,13 +773,13 @@
 
 % Define a title of the cover letter
 % Usage: \makelettertitle
-\newcommand*{\makelettertitle}{%
+\newcommand*{\makelettertitle}[1][0pt]{%
   \vspace{8.4mm}
   \setlength\tabcolsep{0pt}
   \setlength{\extrarowheight}{0pt}
   \begin{flushright}
   \lettertextstyle{\@letterdate }\vspace{2mm}
-  \end{flushright}
+  \end{flushright}\vspace{#1}
   \lettertextstyle \@letteropening\ \@recipientname\ \@recipientgroup,\\
 }
 
