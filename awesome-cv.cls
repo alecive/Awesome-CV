@@ -364,6 +364,10 @@
 \newcommand*{\recipientgroup}[1]{\def\@recipientgroup{#1}}
 \newcommand*{\recipientnameB}[1]{\def\@recipientnameB{#1}}
 
+% Defines letter's addressee (optional)
+% Usage: \letteraddressee{<letteraddressee>}
+\newcommand*{\letteraddressee}[1]{\def\@letteraddressee{#1}}
+
 % Defines current address for the coverletter
 % Usage: \letteraddress{<letteraddressA>}{<letteraddressB>}{<letteraddressC>}
 % Usage: \letteraddressA{<letteraddressA>}
@@ -780,7 +784,9 @@
   \begin{flushright}
   \lettertextstyle{\@letterdate }\vspace{2mm}
   \end{flushright}\vspace{#1}
-  \lettertextstyle \@letteropening\ \@recipientname\ \@recipientgroup,\\
+  \ifthenelse{\isundefined{\@letteraddressee}}%
+  {\lettertextstyle \@letteropening\ \@recipientname\ \@recipientgroup,\\}%
+  {\lettertextstyle \@letteropening\ \@letteraddressee,\\}%
 }
 
 % Define a closing of the cover letter
