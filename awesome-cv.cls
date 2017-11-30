@@ -785,8 +785,8 @@
   \lettertextstyle{\@letterdate }\vspace{2mm}
   \end{flushright}\vspace{#1}
   \ifthenelse{\isundefined{\@letteraddressee}}%
-  {\lettertextstyle \@letteropening\ \@recipientname\ \@recipientgroup,\\}%
-  {\lettertextstyle \@letteropening\ \@letteraddressee,\\}%
+  {\lettertextstyle \@letteropening\ \@recipientname\ \@recipientgroup,}%
+  {\lettertextstyle \@letteropening\ \@letteraddressee,}%
 }
 
 % Define a closing of the cover letter
