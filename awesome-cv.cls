@@ -601,6 +601,12 @@
   \vspace{-1mm}
 }
 
+\newcommand{\cvsectionpar}[1]{%
+  \vspace{\acvSectionTopSkip}
+  \hspace{-1mm}\sectionstyle{#1}
+  \phantomsection\hspace{4mm}
+}
+
 % Define a subsection for CV
 % Usage: \cvsubsection{<subsection-title>}
 \newcommand{\cvsubsection}[1]{%
