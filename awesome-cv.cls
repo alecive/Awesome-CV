@@ -612,7 +612,7 @@
 \newcommand{\cvsubsection}[1]{%
   \vspace{\acvSectionContentTopSkip}
   \subsectionstyle{#1}
-  \vspace{-0.5mm}
+  \vspace{-0.7mm}
   \phantomsection
 }
 
