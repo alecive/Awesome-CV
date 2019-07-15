@@ -550,7 +550,7 @@
         {}%
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{https://scholar.google.com/citations?user=\@scholar}{\color{text}\faGraduationCap\acvHeaderIconSep{Google Scholar}}%
+          \href{https://scholar.google.com/citations?user=\@scholar}{\color{text}\faGraduationCap\acvHeaderIconSep{google scholar}}%
         }%
       \ifthenelse{\isundefined{\@skype}}%
         {}%
@@ -815,21 +815,26 @@
   \letterfirstnamestyle{\@firstname}\ \letterlastnamestyle{\@lastname}\\
   \@position, \@letteraddressA,\\
   \@letteraddressB, \@letteraddressC\\
-  \href{mailto:\@email}{\color{awesome}\faEnvelope\acvHeaderIconSep\@email}%
+  \href{mailto:\@email}{\color{awesome}\faEnvelope\acvHeaderIconSep\ \@email}%
   \ifthenelse{\isundefined{\@emailB}}%
     {}%
     {%
-      \acvHeaderIconSep{\cdotp}\acvHeaderIconSep\href{mailto:\@email}{\color{awesome}\@emailB}
-    }\\
-  \href{https://\@homepage}{\color{awesome}\faHome\acvHeaderIconSep\@homepage}%
-  \ifthenelse{\isundefined{\@github}}%
-    {}%
-    {%
-      \color{graytext}\acvHeaderSocialSep\href{https://github.com/\@github}{\color{awesome}\faGithubAlt\acvHeaderIconSep\@github}%
-    }%
+      \acvHeaderIconSep{\cdotp}\acvHeaderIconSep\href{mailto:\@emailB}{\color{awesome}\ \@emailB}
+    }
   \ifthenelse{\isundefined{\@mobile}}%
     {}%
     {%
-      \color{graytext}\acvHeaderSocialSep\color{awesome}\faPhone\acvHeaderIconSep\@mobile%
+      \color{graytext}\acvHeaderSocialSep\color{awesome}\faPhone\acvHeaderIconSep\ \@mobile%
+    }\\
+  \href{https://\@homepage}{\color{awesome}\faHome\acvHeaderIconSep\ \@homepage}%
+  \ifthenelse{\isundefined{\@github}}%
+    {}%
+    {%
+      \color{graytext}\acvHeaderSocialSep\href{https://github.com/\@github}{\color{awesome}\faGithubAlt\acvHeaderIconSep\ \@github}%
+    }%
+  \ifthenelse{\isundefined{\@scholar}}%
+    {}%
+    {%
+      \color{graytext}\acvHeaderSocialSep\href{https://scholar.google.com/citations?user=\@scholar}{\faGraduationCap\ {google scholar}}%
     }%
 }
