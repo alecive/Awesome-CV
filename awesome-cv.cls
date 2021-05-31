@@ -198,6 +198,8 @@
   BoldItalicFont=*-LightItalic,
 ]{Montserrat}
 
+\newfontfamily\timesnewromanfont{Times New Roman}
+
 \newcommand*{\bodyfont}{\sourcesanspro}
 \newcommand*{\bodyfontlight}{\sourcesansprolight}
 
@@ -206,30 +208,30 @@
 %-------------------------------------------------------------------------------
 % Configure styles for each CV elements
 % For fundamental structures
-\newcommand*{\headerfirstnamestyle}[1]{{\fontsize{28pt}{1em}\headerfontlightB\color{graytext} #1}}
-\newcommand*{\headerlastnamestyle}[1]{{\fontsize{28pt}{1em}\headerfontB\bfseries\color{text} #1}}
-\newcommand*{\headerpositionstyle}[1]{{\fontsize{10pt}{1.2em}\headerfontB\bfseries\scshape\color{awesome} #1}}
-\newcommand*{\headeraddressstyle}[1]{{\fontsize{8pt}{1em}\headerfont\itshape\color{lighttext} #1}}
-\newcommand*{\headersocialstyle}[1]{{\fontsize{8pt}{1em}\headerfont\color{text} #1}}
+\newcommand*{\headerfirstnamestyle}[1]{{\fontsize{28pt}{1.2em}\headerfontlightB\color{graytext} #1}}
+\newcommand*{\headerlastnamestyle}[1]{{\fontsize{32pt}{1.2em}\headerfontB\bfseries\color{text} #1}}
+\newcommand*{\headerpositionstyle}[1]{{\fontsize{16pt}{1.4em}\headerfontB\bfseries\scshape\color{awesome} #1}}
+\newcommand*{\headeraddressstyle}[1]{{\fontsize{9pt}{1em}\headerfont\itshape\color{lighttext} #1}}
+\newcommand*{\headersocialstyle}[1]{{\fontsize{10pt}{1em}\headerfont\color{text} #1}}
 \newcommand*{\headerquotestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\itshape\color{darktext} #1}}
 \newcommand*{\footerstyle}[1]{{\fontsize{8pt}{1em}\bodyfont\scshape\color{lighttext} #1}}
-\newcommand*{\sectionstyle}[1]{{\fontsize{16pt}{1em}\headerfontB\bfseries\scshape\color{awesome}\MakeLowercase{#1}}}
-\newcommand*{\subsectionstyle}[1]{{\fontsize{14pt}{1em}\bodyfont\scshape\textcolor{graytext}{\MakeLowercase{#1}}}}
-\newcommand*{\paragraphstyle}{\fontsize{10pt}{1.15em}\bodyfontlight\upshape\color{text}}
+\newcommand*{\sectionstyle}[1]{{\fontsize{18pt}{1.32em}\headerfontB\bfseries\scshape\color{awesome}\MakeLowercase{#1}}}
+\newcommand*{\subsectionstyle}[1]{{\fontsize{14pt}{1em}\bodyfont\scshape{\MakeLowercase{#1}}}}
+\newcommand*{\paragraphstyle}{\fontsize{12pt}{1.32em}\bodyfontlight\upshape\color{text}}
 
 % For elements of entry
-\newcommand*{\entrytitlestyle}[1]{{\fontsize{10.5pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
+\newcommand*{\entrytitlestyle}[1]{{\fontsize{13.2pt}{1.32em}\bodyfont\bfseries\color{darktext} #1}}
 \newcommand*{\entrypositionstyle}[1]{{\fontsize{10pt}{1em}\bodyfont\scshape\color{graytext} \MakeLowercase{#1}}}
-\newcommand*{\entrydatestyle}[1]{{\fontsize{11pt}{1em}\bodyfont\scshape\color{graytext} #1}}
+\newcommand*{\entrydatestyle}[1]{{\fontsize{12.4pt}{1.2em}\bodyfont\scshape\color{graytext} #1}}
 \newcommand*{\entrylocationstyle}[1]{{\fontsize{10pt}{1em}\bodyfontlight\scshape\color{awesome} \MakeLowercase{#1}}}
-\newcommand*{\descriptionstyle}[1]{{\fontsize{10pt}{1.15em}\bodyfontlight\upshape\color{text} #1}}
+\newcommand*{\descriptionstyle}[1]{{\fontsize{12pt}{1.32em}\bodyfontlight\upshape\color{text} #1}}
 
 % For elements of subentry
-\newcommand*{\subentrytitlestyle}[1]{{\fontsize{8pt}{1em}\bodyfont\mdseries\color{graytext} #1}}
-\newcommand*{\subentrypositionstyle}[1]{{\fontsize{7pt}{1em}\bodyfont\scshape\color{graytext} #1}}
-\newcommand*{\subentrydatestyle}[1]{{\fontsize{7pt}{1em}\bodyfontlight\slshape\color{graytext} #1}}
-\newcommand*{\subentrylocationstyle}[1]{{\fontsize{7pt}{1em}\bodyfontlight\slshape\color{awesome} #1}}
-\newcommand*{\subdescriptionstyle}[1]{{\fontsize{8pt}{1em}\bodyfontlight\upshape\color{text} #1}}
+\newcommand*{\subentrytitlestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\mdseries\color{graytext} #1}}
+\newcommand*{\subentrypositionstyle}[1]{{\fontsize{9pt}{1em}\bodyfont\scshape\color{graytext} #1}}
+\newcommand*{\subentrydatestyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\slshape\color{graytext} #1}}
+\newcommand*{\subentrylocationstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\slshape\color{awesome} #1}}
+\newcommand*{\subdescriptionstyle}[1]{{\fontsize{10pt}{1.05em}\bodyfontlight\upshape\color{text} #1}}
 
 % For elements of honor
 \newcommand*{\honortitlestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\color{graytext} #1}}
@@ -239,20 +241,20 @@
 
 % For elements of skill
 \newcommand*{\skilltypestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
-\newcommand*{\skillsetstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\color{text} #1}}
+\newcommand*{\skillsetstyle}[1]{{\fontsize{10pt}{1em}\bodyfontlight\color{text} #1}}
 
 % For elements of the cover letter
 \newcommand*{\lettersectionstyle}[1]{{\fontsize{14pt}{1em}\bodyfont\bfseries\color{text}\@sectioncolor #1}}
 \newcommand*{\recipientaddressstyle}[1]{{\fontsize{9pt}{1em}\bodyfont\scshape\color{graytext} #1}}
-\newcommand*{\recipienttitlestyle}[1]{{\fontsize{11pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
+\newcommand*{\recipienttitlestyle}[1]{{\fontsize{12pt}{1.2em}\bodyfont\bfseries\color{darktext} #1}}
 \newcommand*{\lettertitlestyle}[1]{{\fontsize{10pt}{1em}\bodyfontlight\bfseries\color{darktext} \underline{#1}}}
 \newcommand*{\letterdatestyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\slshape\color{graytext} #1}}
 \newcommand*{\lettertextstyle}{\fontsize{11pt}{1.6em}\bodyfontlight\upshape\color{graytext}}
-\newcommand*{\letterfirstnamestyle}[1]{{\fontsize{11pt}{1em}\bodyfontlight\color{graytext} #1}}
+\newcommand*{\letterfirstnamestyle}[1]{{\fontsize{12pt}{1.2em}\bodyfontlight\color{graytext} #1}}
 \newcommand*{\letterlastnamestyle}[1]{{\fontsize{11.5pt}{1em}\bodyfontlight\bfseries\color{graytext} #1}}
-\newcommand*{\letterenclosurestyle}[1]{{\fontsize{11pt}{1em}\bodyfontlight\slshape\color{lighttext} #1}}
+\newcommand*{\letterenclosurestyle}[1]{{\fontsize{12pt}{1.2em}\bodyfontlight\slshape\color{lighttext} #1}}
 
-\newcommand*{\textBF}[1]{{\fontsize{11.5pt}{1em}\bodyfont\scshape\MakeLowercase{#1}}}
+\newcommand*{\textBF}[1]{{\fontsize{13.6pt}{1.2em}\bodyfont\scshape\color{graytext}\MakeLowercase{#1}}}
 
 %-------------------------------------------------------------------------------
 %                Commands for personal information
@@ -419,8 +421,8 @@
 %% Define helper macros a user can change easily
 % Header
 \newcommand{\acvHeaderNameDelim}{\space}
-\newcommand{\acvHeaderAfterNameSkip}{1mm}
-\newcommand{\acvHeaderAfterPositionSkip}{.4mm}
+\newcommand{\acvHeaderAfterNameSkip}{2mm}
+\newcommand{\acvHeaderAfterPositionSkip}{1mm}
 \newcommand{\acvHeaderAfterAddressSkip}{-.5mm}
 \newcommand{\acvHeaderIconSep}{\space}
 \newcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
@@ -428,8 +430,8 @@
 \newcommand{\acvHeaderAfterQuoteSkip}{5mm}
 
 % Others
-\newcommand{\acvSectionTopSkip}{2mm}
-\newcommand{\acvSectionContentTopSkip}{1mm}
+\newcommand{\acvSectionTopSkip}{2.4mm}
+\newcommand{\acvSectionContentTopSkip}{1.2mm}
 
 
 %-------------------------------------------------------------------------------
@@ -446,6 +448,11 @@
 % Use to execute conditional statements by checking empty string
 \newcommand*{\ifempty}[3]{\ifthenelse{\isempty{#1}}{#2}{#3}}
 
+% Used to remove line breaks
+\newcommand{\removelinebreaks}[1]{\begingroup\def\\{}#1\endgroup}
+
+% Used to remove spaces
+\newcommand{\removespaces}[1]{\begingroup\spaceskip=1sp\xspaceskip=1sp#1\endgroup}
 
 %-------------------------------------------------------------------------------
 %                Commands for elements of CV structure
@@ -550,7 +557,7 @@
         {}%
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{https://scholar.google.com/citations?user=\@scholar}{\color{text}\faGraduationCap\acvHeaderIconSep{google scholar}}%
+          \href{https://scholar.google.com/citations?user=\@scholar}{\color{text}\faGraduationCap\acvHeaderIconSep{GScholar}}%
         }%
       \ifthenelse{\isundefined{\@skype}}%
         {}%
@@ -606,10 +613,10 @@
 % Usage: \cvsection{<section-title>}
 \newcommand{\cvsection}[1]{%
   \vspace{\acvSectionTopSkip}
-  \hspace{-1mm}\sectionstyle{#1}
+  \hspace{-0.5mm}\sectionstyle{#1}
   \phantomsection
   \color{awesome}\vhrulefill{1pt}
-  \vspace{-1mm}
+  \vspace{-0.8mm}
 }
 
 \newcommand{\cvsectionpar}[1]{%
@@ -623,7 +630,7 @@
 \newcommand{\cvsubsection}[1]{%
   \vspace{\acvSectionContentTopSkip}
   \subsectionstyle{#1}
-  \vspace{-0.7mm}
+  \vspace{-0.6mm}
   \phantomsection
 }
 
@@ -637,10 +644,19 @@
   % \vspace{2mm}
 }
 
+
+% Similar to ifempty but it checks also if the variable contains an empty group
+\newcommand{\ifnotext}[3]{%
+  \sbox0{#1}%
+  \ifdim\wd0=0pt {#2}% if #1 is empty
+  \else {#3}% if #1 is not empty
+  \fi
+}
+
 % Define an environment for cventry
 \newenvironment{cventries}{%
   \vspace{\acvSectionContentTopSkip}
-  \vspace{1.5mm}
+  % \vspace{1.5mm}
   \begin{center}
 }{%
   \end{center}
@@ -648,7 +664,7 @@
 % Define an entry of cv information
 % Usage: \cventry{<position>}{<title>}{<location>}{<date>}{<description>}
 \newcommand*{\cventry}[5]{%
-  \vspace{-2.0mm}
+  % \vspace{-2.0mm}
   \setlength\tabcolsep{0pt}
   \setlength{\extrarowheight}{0pt}
   %\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
@@ -657,10 +673,12 @@
       {\entrypositionstyle{#2} & \entrydatestyle{#4} \\}
       {\entrytitlestyle{#1} \ \entrypositionstyle{#2} &
       \entrylocationstyle{#3} \ \entrydatestyle{#4} \\}
-    \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#5}}
+    \multicolumn{2}{L{\textwidth}}{\justify\vspace{-1em}\descriptionstyle{#5}}
+    % \multicolumn{2}{L{\textwidth}}{\justify\vspace{-1em}\descriptionstyle{#5}}
   %\end{tabular*}%
   \end{longtable}%
   \vspace{-4.0mm}
+  % \ifnotext{#5}{\vspace*{-8.0mm}}{\vspace{-4.0mm}}
 }
 
 % Define an environment for cvsubentry
@@ -725,14 +743,14 @@
 
 % Define an environment for cvskillB
 \newcommand*{\cvskillB}[1]{%
-  \vspace{1.0mm}
+  \vspace{-1.0mm}
   \descriptionstyle{#1}
-  \vspace{3.0mm}
+  \vspace{4.0mm}
 }
 
 % Define an environment for cvitems(for cventry)
 \newenvironment{cvitems}{%
-  \vspace{-4.0mm}
+  % \vspace{-4.0mm}
   \begin{justify}
   \begin{itemize}[leftmargin=1.2ex, nosep, noitemsep]
     \setlength{\parskip}{0pt}
