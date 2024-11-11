@@ -68,6 +68,8 @@
 \RequirePackage{setspace}
 % Needed to make tables span multiple pages
 \RequirePackage{longtable}
+% Needed for underlining
+\RequirePackage{soul}
 % Needed to manage fonts
 \RequirePackage[quiet]{fontspec}
 % To support LaTeX quoting style
